@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'youngserif';
+    src: url(./fontsdb/YoungSerif-Regular.ttf);
+
+}
+@font-face {
+    font-family: 'eduN';
+    src: url(./font/EduNSWACTCursive-VariableFont_wght.ttf);
+}
+*{
+    font-family: youngserif;
+}
+.navbar{
+    background-color: #801F4F !important;
+    height: 80px;
+    font-family: youngserif;
+}
+
+.navbar-brand{
+   font-size: 40px;
+
+}
+.label1 {
+   font-family: eduN;
+    font-size: 20px;
+    font-weight: 600;
+    color: #801F4F;
+}
+.label2{
+    font-family: eduN;
+    font-size: 16px;
+    font-weight: 600;
+    color: #801F4F;
+}
+.btn-primary{
+    background-color: #801F4F !important;
+    border-color: #801F4F !important;
+    border: 1px solid white !important;
+}
+
+.swal2-actions{
+    width : 90%;
+}
+.swal2-confirm{
+    width: 100%;
+    background-color: #801F4F !important;
+    border-color: #801F4F !important;
+}
+.card-header{
+    background-color: #801F4F !important;
+    color: white !important;
+}
+.blockquote-footer{
+    color: black !important;
+}
+.images-list > img{
+width: 40px;
+height: 40px;
+border-radius: 5px;
+position: bo;
+
+}
+.images-list{
+    justify-content: space-around;
+}
+
+.selected-img{
+    border: 5px solid #801F4F;
+    
+}
+.card-body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+   
+}
+@media only screen and (max-width: 500px) {
+    .main{
+        padding: 10px 4px !important;
+    }
+    
+}
