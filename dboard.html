@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-dark  " aria-label="First navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Post App</a>
+            <a class="navbar-brand" id = "greet" href="#">Post App</a>
             <button class="text-align-right btn btn-primary" onclick="logOut()">LogOut</button>
         </div>
     </nav>
@@ -22,40 +22,67 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="main p-4">
                     <div class="card p-3">
-               
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label label1">Dear Diary</label>
-                        <input id="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label label2">Today's Chapter</label>
-                        <textarea id="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="It all started when..."></textarea>
-                      </div>
-                      <div class="mb-3">
-                        <div class="images-list d-flex">
-                            <img src="./images/img1.gif" alt="" onclick="selectedImg('./images/img1.gif')" class="bg-image">
-                            <img src="./images/img2.gif" alt="" onclick="selectedImg('./images/img2.gif')" class="bg-image">
-                            <img src="./images/img3.gif" alt="" onclick="selectedImg('./images/img3.gif')" class="bg-image">
-                            <img src="./images/img4.gif" alt="" onclick="selectedImg('./images/img4.gif')" class="bg-image">
-                            <img src="./images/img5.gif" alt="" onclick="selectedImg('./images/img5.gif')" class="bg-image">
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label label1">Dear Diary</label>
+                            <input id="title" type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
 
                         </div>
-                      </div>
-                    
-                    <button type="submit" class="btn btn-primary" onclick="addPost()">Publish My Day</button>
-               
-            </div>
-            </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label label2">Today's Chapter</label>
+                            <div class="button  d-flex gap-0 justify-content-between align-items-center mb-2">
+                                <div class="btn-grp">
+                                    <button class="btn btn-outline-secondary text-style-btn btn1" type="button"
+                                        onclick="format('bold')">B</button>
+                                    <button class="btn btn-outline-secondary text-style-btn btn2" type="button"
+                                        onclick="format('italic')">I</button>
+                                    <button class="btn btn-outline-secondary text-style-btn btn3" type="button"
+                                        onclick="format('underline')">U</button>
+                                </div>
+                                <select id="fontSize" class="form-select w-auto" onchange="format('fontSize', this.value)">
+                                    <option value="3">Normal</option>
+                                    <option value="2">Small</option>
+                                    <option value="5">Large</option>
+                                    <option value="7">Extra Large</option>
+                                </select>
+                                <input type="color" id="colorPicker" class="form-control form-control-color"
+                                    title="Choose your color" onchange ="format('foreColor', this.value)">
+                            </div>
+                            <div id="description" class="form-control text-area"
+                                data-placeholder="It all started when..." contenteditable="true"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="images-list d-flex">
+                                <img src="./images/img1.gif" alt="" onclick="selectedImg('./images/img1.gif')"
+                                    class="bg-image">
+                                <img src="./images/img2.gif" alt="" onclick="selectedImg('./images/img2.gif')"
+                                    class="bg-image">
+                                <img src="./images/img3.gif" alt="" onclick="selectedImg('./images/img3.gif')"
+                                    class="bg-image">
+                                <img src="./images/img4.gif" alt="" onclick="selectedImg('./images/img4.gif')"
+                                    class="bg-image">
+                                <img src="./images/img5.gif" alt="" onclick="selectedImg('./images/img5.gif')"
+                                    class="bg-image">
+
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" onclick="addPost()">Publish My Day</button>
+
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                 <div class="main p-4" id="post-container">
-                
-            </div>
+
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js" integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"
+        integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="dboard.js"></script>
 </body>
