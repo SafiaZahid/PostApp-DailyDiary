@@ -1,4 +1,4 @@
-function checkIn (){
+function checkIn (event){
     event.preventDefault();
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
@@ -13,16 +13,23 @@ function checkIn (){
          
           });
         return;
-    } else if(password !== cPassword){
+    } 
+    if(password !== cPassword){
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Password does not match. Please try again.",
+            text: "Password do not match. Please try again.",
          
           });
         return;
     }
-    else{
+    var userData = {
+      name, 
+      email, 
+      password
+    }
+    localStorage.setItem("userData", JSON.stringify(userData));
+    
         Swal.fire({
            
             icon: "success",
@@ -30,25 +37,15 @@ function checkIn (){
             showConfirmButton: false,
             timer: 1500
           });
-          var userData ={
-            name: name,
-            email: email,
-            password: password,
-            cPassword: cPassword
-        }
-        //console.log(userData);
-        localStorage.setItem("userData", JSON.stringify(userData));
-        // var getData =JSON.parse(localStorage.getItem("userData"));
-        // console.log(getData);
-        // console.log(window.location);
+         
         setTimeout(() =>{
        window.location.href = "./dboard.html";
         }, 2000)
         }
         
-}
 
-function logIn(){
+
+function logIn(event){
   event.preventDefault();
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
@@ -63,15 +60,17 @@ function logIn(){
       text: "No account found. Please sign up first.",
    
     });
+    return;
    }
-    else if (name !== logInData.name || email !== logInData.email || password !== logInData.password){
+    if (name !== logInData.name || email !== logInData.email || password !== logInData.password){
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Nice try, but that's not the secret code",
-    })
+    });
+      return;
 }
-else{
+
   Swal.fire({
     icon: "success",
     title: `Welcome back ${name}! You have logged in successfully.`,
@@ -81,4 +80,4 @@ else{
   setTimeout(() =>{
     window.location.href = "./dboard.html";
      }, 2000)
-}}
+}

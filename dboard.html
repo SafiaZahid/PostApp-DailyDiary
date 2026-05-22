@@ -5,16 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="dboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="dboard.css">
 </head>
 
 <body>
     <nav class="navbar navbar-dark  " aria-label="First navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" id = "greet" href="#">Post App</a>
-            <button class="text-align-right btn btn-primary" onclick="logOut()">LogOut</button>
+            <a class="navbar-brand" id="greet" href="#">Post App</a>
+            <div class="d-flex justify-content-start align-items-center gap-2">
+                <div class="input-group position-relative input-field">
+
+                    <!-- <span class="input-group-text"> -->
+                    <i class="fa-solid fa-magnifying-glass position-absolute" style="
+                        color: #801f4f; 
+                        left:12px;
+                        top:50%; 
+                        transform:translateY(-50%);
+                        cursor:pointer;
+                        z-index: 10;"></i>
+
+
+                    <input type="search" id="searchInput" class="form-control ps-5" placeholder="Search posts..."
+                        onkeyup="searchPost()">
+                </div>
+                <button class="btn btn-primary" onclick="logOut()">LogOut</button>
+            </div>
         </div>
     </nav>
     <div class="container-fluid">
@@ -31,7 +50,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label label2">Today's Chapter</label>
-                            <div class="button  d-flex gap-0 justify-content-between align-items-center mb-2">
+                            <div class="editor-toolbar d-flex gap-0 justify-content-between align-items-center mb-2">
                                 <div class="btn-grp">
                                     <button class="btn btn-outline-secondary text-style-btn btn1" type="button"
                                         onclick="format('bold')">B</button>
@@ -40,14 +59,15 @@
                                     <button class="btn btn-outline-secondary text-style-btn btn3" type="button"
                                         onclick="format('underline')">U</button>
                                 </div>
-                                <select id="fontSize" class="form-select w-auto" onchange="format('fontSize', this.value)">
+                                <select id="fontSize" class="form-select w-auto"
+                                    onchange="format('fontSize', this.value)">
                                     <option value="3">Normal</option>
                                     <option value="2">Small</option>
                                     <option value="5">Large</option>
                                     <option value="7">Extra Large</option>
                                 </select>
                                 <input type="color" id="colorPicker" class="form-control form-control-color"
-                                    title="Choose your color" onchange ="format('foreColor', this.value)">
+                                    title="Choose your color" oninput="format('foreColor', this.value)">
                             </div>
                             <div id="description" class="form-control text-area"
                                 data-placeholder="It all started when..." contenteditable="true"></div>
@@ -88,3 +108,5 @@
 </body>
 
 </html>
+
+
